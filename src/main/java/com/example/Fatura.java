@@ -76,6 +76,27 @@ public class Fatura {
         valorTotal += compra.getValor(); // Atualiza o valor total da fatura
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Estado da Fatura: ").append(estado).append("\n");
+        stringBuilder.append("Status da Fatura: ").append(status).append("\n");
+        stringBuilder.append("Mês de Referência: ").append(mesReferencia).append("\n");
+        stringBuilder.append("Ano de Referência: ").append(anoReferencia).append("\n");
+        stringBuilder.append("Valor Total da Fatura: ").append(valorTotal).append("\n");
+
+        stringBuilder.append("\nCompras na Fatura:\n");
+        for (Compra compra : listaCompras) {
+            stringBuilder.append("Titulo: ").append(compra.getTitulo()).append("\n");
+            stringBuilder.append("Descricao: ").append(compra.getDescricao()).append("\n");
+            stringBuilder.append("Valor: ").append(compra.getValor()).append("\n");
+            stringBuilder.append("Data: ").append(compra.getData()).append("\n");
+            stringBuilder.append("---------------------\n");
+        }
+
+        return stringBuilder.toString();
+    }
+
     // Método emitirBoleto: que printa uma lista com as compras
 
     // Método calculaTotal: varre as compras e soma os valores
